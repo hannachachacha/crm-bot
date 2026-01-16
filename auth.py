@@ -1,9 +1,9 @@
 import requests
 import os
 
-REFRESH_TOKEN = os.environ["ZOHO_REFRESH_TOKEN"]
-CLIENT_ID = os.environ["ZOHO_CLIENT_ID"]
-CLIENT_SECRET = os.environ["ZOHO_CLIENT_SECRET"]
+REFRESH_TOKEN = os.environ["REFRESH_TOKEN"]
+CLIENT_ID = os.environ["CLIENT_ID"]
+CLIENT_SECRET = os.environ["CLIENT_SECRET"]
 
 def get_access_token():
     url = "https://accounts.zoho.com/oauth/v2/token"
