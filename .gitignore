@@ -1,2 +1,17 @@
-# Local Netlify folder
-.netlify
+# Python venv
+venv/
+.env/
+
+# __pycache__ та тимчасові файли
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE / редактори
+.vscode/
+.idea/
+
+# OS файли
+.DS_Store
+Thumbs.db

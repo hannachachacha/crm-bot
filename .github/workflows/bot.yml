@@ -22,10 +22,8 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run tasks report (9:00)
-        if: github.event.schedule == '0 9 * * *'
+      - name: Run tasks report
         run: python tasks_report.py
 
-      - name: Run invoices report (18:00)
-        if: github.event.schedule == '0 18 * * *'
+      - name: Run invoices report
         run: python invoices_report.py
