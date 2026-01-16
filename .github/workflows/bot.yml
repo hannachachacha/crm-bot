@@ -1,0 +1,31 @@
+name: CRM Bot Reports
+
+on:
+  schedule:
+    - cron: "0 9 * * *"   # щодня о 9:00
+    - cron: "0 18 * * *"  # щодня о 18:00
+  workflow_dispatch:       # дозволяє запускати вручну
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tasks report (9:00)
+        if: github.event.schedule == '0 9 * * *'
+        run: python tasks_report.py
+
+      - name: Run invoices report (18:00)
+        if: github.event.schedule == '0 18 * * *'
+        run: python invoices_report.py
